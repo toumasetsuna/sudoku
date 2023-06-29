@@ -1,3 +1,21 @@
 # ninja log v5
-3	451	7097668217635209	CMakeFiles/sudoku.dir/main.cpp.obj	4663525aa5a25c4f
-452	627	7097668219385202	sudoku.exe	9ca374cdbcfe859e
+13	904	7097769119495045	Google_tests/lib/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	fa2029946357ed1
+5	795	7097783173740665	Google_tests/CMakeFiles/Google_Tests_run.dir/test.cpp.obj	693447f213e1413b
+7	375	7097782673021598	CMakeFiles/sudoku.dir/main.cpp.obj	4663525aa5a25c4f
+6946	7015	7097769180623727	lib/libgtest_main.a	e2f847db26fc82ba
+11	5167	7097769162031104	Google_tests/lib/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	1f3350b00a09e1be
+437	669	7097782883438916	sudoku.exe	9d83eacf402dfe7a
+1	226	7097783356508294	build.ninja	8860d431b1a15ca1
+5170	6946	7097769179933725	lib/libgtest.a	8e17f393dfdce025
+7016	7187	7097769182311757	Google_tests/Google_Tests_run.exe	e001aafa9e9e2ab5
+5	483	7097779592947271	Google_tests/CMakeFiles/Google_Tests_run.dir/__/main.cpp.obj	a7802ec321209cf6
+3	437	7097782881143922	CMakeFiles/sudoku.dir/sudoku.cpp.obj	e31baa33573313ed
+5	465	7097783372443711	Google_tests/CMakeFiles/Google_Tests_run.dir/__/sudoku.cpp.obj	c3fa0c464efc5ee5
+5	518	7097783630086661	Google_tests/CMakeFiles/Google_Tests_run.dir/__/sudoku.cpp.obj	c3fa0c464efc5ee5
+519	719	7097783632082353	Google_tests/Google_Tests_run.exe	6fbc593145976746
+5	799	7097783947911157	Google_tests/CMakeFiles/Google_Tests_run.dir/test.cpp.obj	693447f213e1413b
+800	971	7097783949607888	Google_tests/Google_Tests_run.exe	6fbc593145976746
+7	856	7097789343877262	Google_tests/CMakeFiles/Google_Tests_run.dir/test.cpp.obj	693447f213e1413b
+857	3295	7097789368221796	Google_tests/Google_Tests_run.exe	6fbc593145976746
+5	851	7097791786694806	Google_tests/CMakeFiles/Google_Tests_run.dir/test.cpp.obj	693447f213e1413b
+852	3213	7097791810280869	Google_tests/Google_Tests_run.exe	6fbc593145976746

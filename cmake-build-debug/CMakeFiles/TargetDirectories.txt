@@ -1,3 +1,10 @@
 D:/clion project/shudu/cmake-build-debug/CMakeFiles/sudoku.dir
 D:/clion project/shudu/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/clion project/shudu/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/clion project/shudu/cmake-build-debug/Google_tests/CMakeFiles/Google_Tests_run.dir
+D:/clion project/shudu/cmake-build-debug/Google_tests/CMakeFiles/edit_cache.dir
+D:/clion project/shudu/cmake-build-debug/Google_tests/CMakeFiles/rebuild_cache.dir
+D:/clion project/shudu/cmake-build-debug/Google_tests/lib/CMakeFiles/gtest.dir
+D:/clion project/shudu/cmake-build-debug/Google_tests/lib/CMakeFiles/gtest_main.dir
+D:/clion project/shudu/cmake-build-debug/Google_tests/lib/CMakeFiles/edit_cache.dir
+D:/clion project/shudu/cmake-build-debug/Google_tests/lib/CMakeFiles/rebuild_cache.dir
