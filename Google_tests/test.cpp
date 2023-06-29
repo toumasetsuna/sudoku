@@ -6,7 +6,6 @@
 #include "../sudoku.h"
 
 using namespace std;
-
 void test_time() {
     clock_t start, finish;
     double duration;
@@ -57,7 +56,102 @@ GTEST_API_ int main(int argc, char **argv) {
     return RUN_ALL_TESTS();//将会搜索不同的Test Case和不同的源文件中所有已经存在测试案例，然后运行它们，所有Test都成功时返回1，否则返回0。
 }
 
-TEST(TestCase, test1) {
-    EXPECT_STREQ("hello world", "hello world");
-    test_time();
+void check_shudu(int shudu[9][9]) {
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (shudu[i][j] == 0) {
+                printf("wrong\n");
+                return;
+            }
+        }
+    }
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            for (int k = 0; k < 9; k++) {
+                if (j != k) {
+                    EXPECT_NE(shudu[i][j], shudu[i][k]);
+                    return;
+                }
+                if (j != k) {
+                    EXPECT_NE(shudu[j][i], shudu[k][i]);
+                    return;
+                }
+            }
+        }
+    }
+}
+
+void check_shudu_game(int shudu[9][9]) {
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            for (int k = 0; k < 9; k++) {
+                if (j != k) {
+                    if (shudu[i][j] != 0)EXPECT_NE(shudu[i][j], shudu[i][k]);
+                    return;
+                }
+                if (j != k) {
+                    if (shudu[j][i] != 0)EXPECT_NE(shudu[j][i], shudu[k][i]);
+                    return;
+                }
+            }
+        }
+    }
+}
+
+TEST(Test_final, test1) {
+
+    //test_time();
+    static int shudu[10000][SIDE_LEN][SIDE_LEN];
+    generate_shudu_final_list(shudu, 10000);
+    for (int i = 0; i < 1000; i++) {
+        check_shudu(shudu[i]);
+    }
+}
+
+TEST(Test_final, test2) {
+    static int shudu[10000][SIDE_LEN][SIDE_LEN];
+    for (int i = 0; i < 1000; i++) {
+        generate_shudu_final(shudu[i]);
+        check_shudu(shudu[i]);
+    }
+}
+
+TEST(Test_game, test3) {
+    srand((unsigned) time(NULL));
+    static int shudu[10000][SIDE_LEN][SIDE_LEN];
+    int blank_low = 20;
+    int blank_high = 55;
+    int space_num = rand() % (blank_high - blank_low + 1) + blank_low;
+    for (int i = 0; i < 1000; i++) {
+        generate_shudu_game(shudu[i], space_num, false);
+        check_shudu_game(shudu[i]);
+        EXPECT_TRUE(solve_shudu_game(shudu[i]));
+    }
+}
+
+TEST(Test_game, test4) {
+    static int shudu[10000][SIDE_LEN][SIDE_LEN];
+    static int shudu_game_copy[SIDE_LEN][SIDE_LEN];
+    int space_num;
+    int blank_low = 20;
+    int blank_high = 55;
+    int num_games = 100;
+    for (int i = 0; i < num_games; i++) {
+        space_num = rand() % (blank_high - blank_low + 1) + blank_low;
+        generate_shudu_game(shudu[i], space_num, false);
+        //generate_shudu_game(shudu[i], space_num, );
+        while (!check_ans_unique(shudu[i])) {
+            space_num = rand() % (blank_high - blank_low + 1) + blank_low;
+            clean_shudu(shudu[i]);
+            generate_shudu_game(shudu[i], space_num, false);
+        }
+
+    }
+    for(int i = 0; i < num_games; i++){
+       int ans= get_ans(shudu[i]);
+        EXPECT_TRUE( ans== 1);
+    }
+}
+TEST(Test_solve,test5){
+
 }

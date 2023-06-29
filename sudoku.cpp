@@ -7,8 +7,6 @@
 #include <cstring>
 #include "sudoku.h"
 using namespace std;
-int ans = 0;
-
 void copy_shudu(int shudu_game[9][9], int shudu_game_copy[9][9]) {
     for (int i = 0; i < SIDE_LEN; i++) {
         for (int j = 0; j < SIDE_LEN; j++) {
@@ -48,9 +46,14 @@ bool check_if_ok(int shudu_final[9][9], int x, int y) {
 int get_random_num() {
     return rand() % 9 + 1;
 }
-
+void clean_shudu(int shudu_final[9][9]) {
+    for (int i = 0; i < SIDE_LEN; i++) {
+        for (int j = 0; j < SIDE_LEN; j++) {
+            shudu_final[i][j] = 0;
+        }
+    }
+}
 void generate_shudu_final(int shudu_final[9][9]) {
-
     static set<int> num_used[T_SIZE];
     for (int i = 0; i < T_SIZE; i++) {
         num_used[i].clear();
@@ -166,42 +169,42 @@ void generate_shudu_final_list(int shudu_final[][9][9], int num) {
     }
 }
 
-void generate_shudu_final_list_2(int shudu_final[][9][9], int num) {
-    int pos = 0;
-    static int num_used[T_SIZE];
-    for (int i = 0; i < T_SIZE; i++) {
-        num_used[i] = 0;
-    }
-    int i, j, t;
-    int iter = 0;
-    t = 0;
-    while (pos < num) {
-        for (; t < T_SIZE; t++) {
-            iter++;
-            i = t / SIDE_LEN;
-            j = t % SIDE_LEN;
-            if (num_used[i * SIDE_LEN + j] == 9) {
-                num_used[i * SIDE_LEN + j] = 0;
-                shudu_final[pos][i][j] = 0;
-                t -= 2;
-                if (t < 0) {
-                    printf("error\n");
-                    assert(0);
-                }
-                continue;
-            }
-            shudu_final[pos][i][j] = num_used[i * SIDE_LEN + j] + 1;
-            num_used[i * SIDE_LEN + j]++;
-            if (!check_if_ok(shudu_final[pos], i, j)) {
-                t--;
-                continue;
-            }
-        }
-        pos++;
-        if (pos < num) copy_shudu(shudu_final[pos - 1], shudu_final[pos]);
-        t--;
-    }
-}
+//void generate_shudu_final_list_2(int shudu_final[][9][9], int num) {
+//    int pos = 0;
+//    static int num_used[T_SIZE];
+//    for (int i = 0; i < T_SIZE; i++) {
+//        num_used[i] = 0;
+//    }
+//    int i, j, t;
+//    int iter = 0;
+//    t = 0;
+//    while (pos < num) {
+//        for (; t < T_SIZE; t++) {
+//            iter++;
+//            i = t / SIDE_LEN;
+//            j = t % SIDE_LEN;
+//            if (num_used[i * SIDE_LEN + j] == 9) {
+//                num_used[i * SIDE_LEN + j] = 0;
+//                shudu_final[pos][i][j] = 0;
+//                t -= 2;
+//                if (t < 0) {
+//                    printf("error\n");
+//                    assert(0);
+//                }
+//                continue;
+//            }
+//            shudu_final[pos][i][j] = num_used[i * SIDE_LEN + j] + 1;
+//            num_used[i * SIDE_LEN + j]++;
+//            if (!check_if_ok(shudu_final[pos], i, j)) {
+//                t--;
+//                continue;
+//            }
+//        }
+//        pos++;
+//        if (pos < num) copy_shudu(shudu_final[pos - 1], shudu_final[pos]);
+//        t--;
+//    }
+//}
 
 void generate_shudu_game(int shudu_game[9][9], int space_num, bool from_final) {
     if (!from_final)generate_shudu_final(shudu_game);
@@ -252,7 +255,7 @@ bool solve_shudu_game(int shudu_game[9][9]) {
     return false;
 }
 
-void get_ans_num(int shudu_game[9][9]) {
+void get_ans_num(int shudu_game[9][9],int &ans) {
     int i, j;
     bool space_found = false;
     for (i = 0; i < SIDE_LEN; i++) {
@@ -275,13 +278,17 @@ void get_ans_num(int shudu_game[9][9]) {
     for (int k = 1; k <= 9; k++) {
         shudu_game[x][y] = k;
         if (check_if_ok(shudu_game, x, y)) {
-            get_ans_num(shudu_game);
+            get_ans_num(shudu_game,ans);
         }
     }
     shudu_game[x][y] = 0;
     return;
 }
-
+int get_ans(int shudu_game[9][9]) {
+    int ans=0;
+    get_ans_num(shudu_game,ans);
+    return ans;
+}
 bool solve_shudu_reverse(int shudu_game[9][9]) {
     int i, j;
     bool space_found = false;
@@ -344,16 +351,16 @@ void print_shudu(int shudu_game[9][9]) {
     printf("\n");
 }
 
-bool compare_shudu(int shudu_game1[9][9], int shudu_game2[9][9]) {
-    for (int i = 0; i < SIDE_LEN; i++) {
-        for (int j = 0; j < SIDE_LEN; j++) {
-            if (shudu_game1[i][j] != shudu_game2[i][j]) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
+//bool compare_shudu(int shudu_game1[9][9], int shudu_game2[9][9]) {
+//    for (int i = 0; i < SIDE_LEN; i++) {
+//        for (int j = 0; j < SIDE_LEN; j++) {
+//            if (shudu_game1[i][j] != shudu_game2[i][j]) {
+//                return false;
+//            }
+//        }
+//    }
+//    return true;
+//}
 
 //void test_time() {
 //    clock_t start, finish;
