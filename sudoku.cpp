@@ -92,7 +92,7 @@ void generate_shudu_final(int shudu_final[9][9]) {
 }
 
 void generate_shudu_final_list(int shudu_final[][9][9], int num) {
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 9; j++) {
             row[i][j] = false;
             col[i][j] = false;

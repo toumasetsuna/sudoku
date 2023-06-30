@@ -61,6 +61,12 @@ build CMakeFiles/sudoku.dir/main.cpp.obj: CXX_COMPILER__sudoku_Debug D$:/clion$ 
   OBJECT_DIR = CMakeFiles\sudoku.dir
   OBJECT_FILE_DIR = CMakeFiles\sudoku.dir
 
+build CMakeFiles/sudoku.dir/start.cpp.obj: CXX_COMPILER__sudoku_Debug D$:/clion$ project/shudu/start.cpp || cmake_object_order_depends_target_sudoku
+  DEP_FILE = CMakeFiles\sudoku.dir\start.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\sudoku.dir
+  OBJECT_FILE_DIR = CMakeFiles\sudoku.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target sudoku
@@ -69,7 +75,7 @@ build CMakeFiles/sudoku.dir/main.cpp.obj: CXX_COMPILER__sudoku_Debug D$:/clion$ 
 #############################################
 # Link the executable sudoku.exe
 
-build sudoku.exe: CXX_EXECUTABLE_LINKER__sudoku_Debug CMakeFiles/sudoku.dir/sudoku.cpp.obj CMakeFiles/sudoku.dir/main.cpp.obj
+build sudoku.exe: CXX_EXECUTABLE_LINKER__sudoku_Debug CMakeFiles/sudoku.dir/sudoku.cpp.obj CMakeFiles/sudoku.dir/main.cpp.obj CMakeFiles/sudoku.dir/start.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\sudoku.dir
@@ -130,6 +136,13 @@ build Google_tests/CMakeFiles/Google_Tests_run.dir/__/sudoku.cpp.obj: CXX_COMPIL
   OBJECT_DIR = Google_tests\CMakeFiles\Google_Tests_run.dir
   OBJECT_FILE_DIR = Google_tests\CMakeFiles\Google_Tests_run.dir\__
 
+build Google_tests/CMakeFiles/Google_Tests_run.dir/__/start.cpp.obj: CXX_COMPILER__Google_Tests_run_Debug D$:/clion$ project/shudu/start.cpp || cmake_object_order_depends_target_Google_Tests_run
+  DEP_FILE = Google_tests\CMakeFiles\Google_Tests_run.dir\__\start.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -isystem "D:/clion project/shudu/Google_tests/lib/include" -isystem "D:/clion project/shudu/Google_tests/lib"
+  OBJECT_DIR = Google_tests\CMakeFiles\Google_Tests_run.dir
+  OBJECT_FILE_DIR = Google_tests\CMakeFiles\Google_Tests_run.dir\__
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Google_Tests_run
@@ -138,7 +151,7 @@ build Google_tests/CMakeFiles/Google_Tests_run.dir/__/sudoku.cpp.obj: CXX_COMPIL
 #############################################
 # Link the executable Google_tests\Google_Tests_run.exe
 
-build Google_tests/Google_Tests_run.exe: CXX_EXECUTABLE_LINKER__Google_Tests_run_Debug Google_tests/CMakeFiles/Google_Tests_run.dir/test.cpp.obj Google_tests/CMakeFiles/Google_Tests_run.dir/__/sudoku.cpp.obj | lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+build Google_tests/Google_Tests_run.exe: CXX_EXECUTABLE_LINKER__Google_Tests_run_Debug Google_tests/CMakeFiles/Google_Tests_run.dir/test.cpp.obj Google_tests/CMakeFiles/Google_Tests_run.dir/__/sudoku.cpp.obj Google_tests/CMakeFiles/Google_Tests_run.dir/__/start.cpp.obj | lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g
   LINK_LIBRARIES = lib/libgtest.a  lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = Google_tests\CMakeFiles\Google_Tests_run.dir
