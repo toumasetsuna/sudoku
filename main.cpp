@@ -15,9 +15,5 @@
 using namespace std;
 int start(int argc, char* argv[]);
 int main(int argc, char *argv[]) {
-    argv[0]="sudoku";
-    argv[1]="-c";
-    argv[2]="1";
-    argc=3;
     start(argc, argv);
 }

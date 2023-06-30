@@ -219,7 +219,6 @@ void generate_shudu_game(int shudu_game[9][9], int space_num, bool from_final) {
         shudu_game[x][y] = 0;
         space_set.insert(x * 9 + y);
     }
-
 }
 
 bool solve_shudu_game(int shudu_game[9][9]) {

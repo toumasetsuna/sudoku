@@ -14,9 +14,6 @@
 using namespace std;
 int start(int argc, char* argv[]){
     srand((unsigned) time(NULL));
-    for (int i = 0; i < argc; i++) {
-        cout << argv[i] << endl;
-    }
     int option;
     int num_finals = 0, num_games = 0;
     char *read_path = NULL;
@@ -66,17 +63,15 @@ int start(int argc, char* argv[]){
                 if(difficulty==1){
                     blank_low = 20;
                     blank_high = 35;
-                    if_unique = true;
+
                 }
                 if(difficulty==2){
                     blank_low = 36;
                     blank_high = 45;
-                    if_unique = true;
                 }
                 if(difficulty==3){
                     blank_low = 46;
                     blank_high = 55;
-                    if_unique = true;
                 }
                 break;
             case 'r':
@@ -174,10 +169,8 @@ int start(int argc, char* argv[]){
                     generate_shudu_game(shudu_game_copy, space_num, false);
                 }
                 copy_shudu(shudu_game_copy, shudu[i]);
-                if(space_num>50){
-                    cout<<"unique "<<space_num<<endl;
-                }
             }
+            copy_shudu(shudu_game_copy, shudu[i]);
         }
         ofstream fout("game.txt");
         fout << num_games << endl;
